@@ -106,7 +106,29 @@ public class PrDAO {
 		}
 		return false; 
 	}
-	
+	public Bean getPro(int id) {
+		String SQL = "SELECT * FROM BEAN WHERE id = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Bean bean = new Bean();
+				bean.setName(rs.getString(1));
+				bean.setCategory(rs.getString(2));
+				bean.setPrice(rs.getInt(3));
+				bean.setContent(rs.getString(4));
+				bean.setBbsdate(rs.getString(5));
+				bean.setBbsavailable(rs.getInt(6));
+				bean.setId(rs.getInt(7));
+				return bean;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; 
+		
+	}
 	
 }
 
