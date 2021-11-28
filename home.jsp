@@ -126,7 +126,7 @@
                 	<td><%= list.get(i).getName() %></td>
                 	<td><%= list.get(i).getPrice() %></td>
                 	<td><%= list.get(i).getBbsdate().substring(0,11)+list.get(i).getBbsdate().substring(11,13) + ":" + list.get(i).getBbsdate().substring(14,16)+"" %></td>
-                	<a href="abc.jsp?id=<%= list.get(0).getId() %>" class="btn btn-secondary">Auction</a>
+                	<a href="productPage.jsp?id=<%= list.get(0).getId() %>" class="btn btn-secondary">Auction</a>
                 	            	
               </div>
           	<%
