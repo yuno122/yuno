@@ -179,7 +179,24 @@
          
         <%= pro.getBbsdate() %> 
          
-     	  
+     	  PrDAO prDAO = new PrDAO();
+        	if(diff <= 0){
+        		int result =  prDAO.delete(id);        		
+		        if(result == -1){
+		        		PrintWriter script = response.getWriter();
+		        		script.println("<script>");
+		        		script.println("alert('F.')");
+		        		script.println("history.back()");
+		        		script.println("</script>");
+		       	}
+		       	else{
+		        	PrintWriter script = response.getWriter();
+		        	script.println("<script>");
+		        	script.println("alert('P.')");
+		        	script.println("location.href = home.jsp");
+		        	script.println("</script>");
+		       	}
+        	}
      
      		
         </div>
