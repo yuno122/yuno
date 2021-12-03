@@ -129,6 +129,17 @@ public class PrDAO {
 		return null; 
 		
 	}
+	public int delete(int id) {
+		String SQL = "UPDATE BEAN SET bbsAvailable = 0 WHERE id = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 	
 }
 
